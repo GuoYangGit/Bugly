@@ -191,7 +191,7 @@
 	       //walle多渠道打包
 	       classpath 'com.meituan.android.walle:plugin:1.1.6'
 	    }
-  }
+  	}
 
 	//app module的build.gradle
 	// 依赖插件脚本，平时编写代码的时候这里其实可以注释，不然每次build都会生成基准包，只要在打正式包的时候放开注释就好了
@@ -293,14 +293,14 @@
 	}
 	```
 	接下来我们去tinker-support.gradle中修改一丢丢东西
-        ![bug基准包.png](https://upload-images.jianshu.io/upload_images/3347923-f6bd1ad99f951127.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+        ![bug基准包.png](https://github.com/GuoYangGit/Bugly/blob/master/png/bug%E5%9F%BA%E5%87%86%E5%8C%85.png)
 
 	然后我们在Terminal中运行`./gradlew clean assembleReleaseChannels`来进行多渠道打包，漫长的50s等待...
 	打包完成，我们来看一下生成目录
-	![bug包目录.png](https://upload-images.jianshu.io/upload_images/3347923-e80e7ae7b86e9ed6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+	![bug包目录.png](https://github.com/GuoYangGit/Bugly/blob/master/png/bug%E5%8C%85%E7%9B%AE%E5%BD%95.png)
 
 	我们将ali的包装到手机上运行一下，不出意外的话就会崩溃。
-	![bug.gif](https://upload-images.jianshu.io/upload_images/3347923-fe57894694960e96.gif?imageMogr2/auto-orient/strip)
+	![bug.gif](https://github.com/GuoYangGit/Bugly/blob/master/gif/bug.gif)
 	
 2. 进行bug修改
 
@@ -323,16 +323,16 @@
 	```
 	
 	接下来我们还是去tinker-support.gradle中修改一丢丢东西
-	![patch包.png](https://upload-images.jianshu.io/upload_images/3347923-2b7c4eb20d8fe6d4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+	![patch包.png](https://github.com/GuoYangGit/Bugly/blob/master/png/patch%E5%8C%85.png)
 	
 	然后去生成patch包
-	![生成patch包.png](https://upload-images.jianshu.io/upload_images/3347923-b4ca06f981c9a45f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+	![生成patch包.png](https://github.com/GuoYangGit/Bugly/blob/master/png/%E7%94%9F%E6%88%90patch%E5%8C%85.png)
 	
 	找到生成的patch包上传bugly进行修复
-	![上传patch包.png](https://upload-images.jianshu.io/upload_images/3347923-f68bfe0699e7c4ea.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+	![上传patch包.png](https://github.com/GuoYangGit/Bugly/blob/master/png/%E4%B8%8A%E4%BC%A0patch%E5%8C%85.png)
 	
 	接下来我们看看修复后的效果
-        ![修复后.gif](https://upload-images.jianshu.io/upload_images/3347923-8641c68755d1c006.gif?imageMogr2/auto-orient/strip)
+        ![修复后.gif](https://github.com/GuoYangGit/Bugly/blob/master/gif/%E4%BF%AE%E5%A4%8D%E5%90%8E.gif)
 
 	
 	我们看到bug已经被修复了，关于360加固/乐固这里我就不测试了。
