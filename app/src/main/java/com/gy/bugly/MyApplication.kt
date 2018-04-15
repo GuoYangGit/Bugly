@@ -26,7 +26,7 @@ class MyApplication : Application() {
          * 参数2：appId
          * 参数3：是否开启debug
          */
-        Bugly.init(applicationContext, "090a34c18b", true)
+        Bugly.init(applicationContext, "自己的appId", true)
     }
 
     override fun attachBaseContext(base: Context) {
