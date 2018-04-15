@@ -335,7 +335,6 @@
 	接下来我们看看修复后的效果
 	
         ![修复后.gif](https://github.com/GuoYangGit/Bugly/blob/master/gif/%E4%BF%AE%E5%A4%8D%E5%90%8E.gif)
-
 	我们看到bug已经被修复了，关于360加固/乐固这里我就不测试了。
 	说一下流程吧，我们先去360官网或者加固工具进行加固，然后使用这个[python脚本](https://github.com/Jay-Goo/ProtectedApkResignerForWalle)进行签名与渠道信息写入，具体流程github说的已经很详细了。
 	
