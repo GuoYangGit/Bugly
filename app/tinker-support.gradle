@@ -1,11 +1,11 @@
 apply plugin: 'com.tencent.bugly.tinker-support'
 
-def bakPath = file("${buildDir}/baseapk/")
+def bakPath = file("${buildDir}/bakApk/")
 
 /**
  * 此处填写每次构建生成的基准包目录
  */
-def baseApkDir = "app-0412-16-11-27"
+def baseApkDir = "v1.0.1"
 
 /**
  * 对于插件各参数的详细解析请参考
@@ -36,15 +36,56 @@ tinkerSupport {
     // 对应tinker插件applyResourceMapping
     baseApkResourceMapping = "${bakPath}/${baseApkDir}/app-release-R.txt"
 
-    // 构建基准包跟补丁包都要修改tinkerId，主要用于区分,例如:1.0.1base 1.0.1patch
-    tinkerId = "1.0.1patch"
+    // 构建基准包跟补丁包都要修改tinkerId，主要用于区分,例如:base-1.0.1  patch-1.0.1
+    tinkerId = "patch-1.0.1"
 
     // 打多渠道补丁时指定目录
-    buildAllFlavorsDir = "${bakPath}/${baseApkDir}"
+//    buildAllFlavorsDir = "${bakPath}/${baseApkDir}"
 
     // 是否开启加固模式，默认为false
      isProtectedApp = true
 
     // 是否采用反射Application的方式集成，无须改造Application
     enableProxyApplication = true
+
+    // 是否支持新增非export的Activity（注意：设置为true才能修改AndroidManifest文件）
+    supportHotplugComponent = true
+}
+
+/**
+ * 一般来说,我们无需对下面的参数做任何的修改
+ * 对于各参数的详细介绍请参考:
+ * https://github.com/Tencent/tinker/wiki/Tinker-%E6%8E%A5%E5%85%A5%E6%8C%87%E5%8D%97
+ */
+tinkerPatch {
+    //oldApk ="${bakPath}/${appName}/app-release.apk"
+    ignoreWarning = false
+    useSign = true
+    dex {
+        dexMode = "jar"
+        pattern = ["classes*.dex"]
+        loader = []
+    }
+    lib {
+        pattern = ["lib/*/*.so"]
+    }
+
+    res {
+        pattern = ["res/*", "r/*", "assets/*", "resources.arsc", "AndroidManifest.xml"]
+        ignoreChange = []
+        largeModSize = 100
+    }
+
+    packageConfig {
+    }
+    sevenZip {
+        zipArtifact = "com.tencent.mm:SevenZip:1.1.10"
+//        path = "/usr/local/bin/7za"
+    }
+    buildConfig {
+        keepDexApply = false
+        //tinkerId = "1.0.1-base"
+        //applyMapping = "${bakPath}/${appName}/app-release-mapping.txt" //  可选，设置mapping文件，建议保持旧apk的proguard混淆方式
+        //applyResourceMapping = "${bakPath}/${appName}/app-release-R.txt" // 可选，设置R.txt文件，通过旧apk文件保持ResId的分配
+    }
 }
