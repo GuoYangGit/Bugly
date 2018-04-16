@@ -4,8 +4,7 @@
 
 ### 为何接入tinker
 
-起因是因为原先网上看到的android各大热修复对比，发现相比较AndFix，QQ空间	，Robust，Tinker的功能还是比较全面的，唯一不好的一点可能就是不能及时生效，需要重新启动吧。这里就不具体介绍tinker热修复的原理了，具体请看[微信Android热补丁实践演进之路
-](https://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ==&mid=2649286306&idx=1&sn=d6b2865e033a99de60b2d4314c6e0a25#rd)
+起因是因为原先网上看到的android各大热修复对比，发现相比较AndFix，QQ空间	，Robust，Tinker的功能还是比较全面的，唯一不好的一点可能就是不能及时生效，需要重新启动吧。这里就不具体介绍tinker热修复的原理了，具体请看[微信Android热补丁实践演进之路](https://mp.weixin.qq.com/s?__biz=MzAwNDY1ODY2OQ==&mid=2649286306&idx=1&sn=d6b2865e033a99de60b2d4314c6e0a25#rd)
 
 顺便上一张对比图
 
